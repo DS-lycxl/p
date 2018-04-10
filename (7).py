@@ -25,9 +25,6 @@ import re
 root = Tk()
 root.title("语音一键生成")
 Label(root, text="语音内容").grid(row=0)
-photo = PhotoImage(file='Logo.png')
-imgLabel = Label(root, image=photo)
-imgLabel.grid(row=0, column=2, padx=10, pady=5)
 text = Text(root, width=35, height=6)
 text.grid(row=0, column=1)
 
@@ -36,11 +33,10 @@ def show():
     web = text.get("0.0", "end")
     web = str(web).replace('\n', '')
     try:
-        os.chdir('C:\\Users\\dtm\\Desktop')
         os.mkdir('voice')
-        os.chdir('C:\\Users\\dtm\\Desktop\\voice')
+        os.chdir('voice')
     except FileExistsError:
-        os.chdir('C:\\Users\\dtm\\Desktop\\voice')
+        os.chdir('voice')
     web_side = urllib.parse.quote(web)
     headers = {
         'user-agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 \
